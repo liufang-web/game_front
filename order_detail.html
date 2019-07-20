@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="lib/layer/need/layer.css">
+    <link href="mob/css/common.css" rel="stylesheet" media="screen">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="lib/layer/layer.js"></script>
+    <title>订单详情</title>
+    <style type="text/css">
+        .content-hd{
+            padding-top: 20px;
+            height: 57px;
+            font-size: 16px;
+            background-color: #eaeaea;
+            border-bottom: #d6d6d6 1px solid;
+        }
+        .address{
+            height: 120px;
+            padding-top: 25px;
+            padding-bottom: 20px;
+            padding-left: 10px;
+            border-bottom: #dcdcdc 7px solid;
+        }
+        .address_content{
+            font-size: 15px;
+            font-family: "Microsoft YaHei UI",serif;
+        }
+        .product{
+            padding-top: 50px;
+            padding-bottom: 50px;
+            border-bottom: #dcdcdc 7px solid;
+        }
+        .product_img{
+            margin-left: -10px;
+        }
+        .product_name{
+            padding-top: 30px;
+            font-size: 18px;
+            font-family: 楷体,serif;
+        }
+        .order{
+            height: 170px;
+            padding-top: 5px;
+        }
+        .order_hd{
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        .ordeer_hd_icon{
+            color: #0360ed;
+        }
+        .ordeer_hd_name{
+            font-family: 楷体,serif;
+            font-weight: bold;
+        }
+        .order_content{
+            font-family: 楷体,serif;
+            margin-top: 20px;
+            font-size: 17px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid" id="app" >
+        <div class="row content-hd" @click="goback()">
+           <i class="fa fa-chevron-left"></i>
+           <span>订单详情</span>
+        </div>
+        <div class="row address">
+            <div class="col-xs-2">
+                <i class="fa fa-map-marker fa-3x" style="color: #47abff"></i>
+            </div>
+            <div class="col-xs-10 address_content">
+                <p>{{order.name}}&nbsp;&nbsp;&nbsp;{{order.phone}}<br/>
+                    {{order.address}}
+                </p>
+            </div>
+        </div>
+        <div class="row product">
+            <div class="col-xs-5 product_img">
+                <img :src="order.productIcon" alt="手机">
+            </div>
+            <div class="col-xs-7 product_name">{{order.productName}}</div>
+        </div>
+        <div class="row order">
+            <div class="col-xs-12 order_hd">
+                <i class="ordeer_hd_icon fa fa-ellipsis-v"></i>
+                <span class="ordeer_hd_name">订单信息</span>
+            </div>
+            <div class="col-xs-12 order_content" >
+                <p>订单编号: {{order.orderNumber}}</p>
+                <p>订单时间: {{order.orderTime}}</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="mob/js/common.js"></script>
+    <script>
+        var order_num = getQueryString("orderNumber");
+        new Vue({
+            el: "#app",
+            data: {
+              order: {}
+            },
+            created: function () {
+                this.getDetail();
+            },
+            methods: {
+                getDetail: function () {
+                    var that = this;
+                    $.get(baseUrl + "/shop/order/detail?orderNumber="+order_num, function (result) {
+                        that.order = result.data;
+                    });
+                },
+                goback: function () {
+                    // window.location.href="shop.html";
+                    window.history.back();
+                }
+            }
+        })
+    </script>
+</body>
+</html>

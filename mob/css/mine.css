@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.header{
+    width: 100%;
+    height: 150px;
+}
+.header .header-title{
+    position: relative;
+    top: 35px;
+    left: 20px;
+    font-size: 20px;
+}
+.header-title .title{
+    font-size: 22px;
+    font-weight: bolder;
+}
+.header-left{
+    position: relative;
+    top: 10px;
+}
+.header-title .header-left .number{
+    font-size: 18px;
+}
+.header-left .integrate{
+    font-size: 12px;
+    color: gray;
+    margin-left: 5px;
+}
+.header-left i{
+   color: #ec971f;
+}
+.header img{
+    float: right;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    right: 70px;
+    top: -59px;
+    border-radius: 50%;
+}
+#login{
+    width: 50px;
+    height: 35px;
+    border-radius: 5px;
+    position: relative;
+    left: 43%;
+    top: 73px;
+    outline: none;
+    border: 1px solid #dbdbdb;
+}
+/*3个box共同的*/
+.box{
+    width: 100%;
+    height: 80px;
+    position: relative;
+    top: 20px;
+    margin-bottom: 20px;
+}
+.box-center{
+    border: 1px solid whitesmoke;
+    width: 90%;
+    height: 78px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    margin: 0 auto;
+}
+.box .register{
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    top: 15px;
+    left: 28px;
+}
+.box .reward{
+    position: relative;
+    top: 24px;
+    left: 29px;
+    font-size: 10px;
+}
+.box .finish{
+    float: right;
+    position: relative;
+    top: -10px;
+    right: 20px;
+    font-size: 16px;
+    color: #b819b9;
+}
+/*签到展开*/
+.dayWeek{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128,128,128,0.5);
+    z-index: 1;
+    display: none;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+}
+.day-register{
+    background-color: white;
+    width: 320px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    margin-top: -100px;
+    left: 50%;
+    margin-left: -160px;
+}
+.day-register img{
+    width: 320px;
+    height: 200px;
+}
+.fa-close{
+    position: absolute;
+    left: 93%;
+    top: 6px;
+    color: #dbdbdb;
+    float: right;
+    margin-right: 6px;
+    font-size: 22px;
+    font-weight: 100;
+}
+/*分享展开*/
+.grayDiv{
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.5;
+    background-color: gray;
+    position: absolute;
+    top: 0;
+    display: none;
+}
+.goRegister{
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    top: 8px;
+    right: -8px;
+}
+.goRegister img{
+    width: 150px;
+    height: 100px;
+}
+/*联系我们*/
+.call{
+    display: flex;
+    width: 100%;
+    height: 70px;
+    padding: 20px;
+}
+.contact{
+    flex: 1;
+    height: 30px;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: right;
+}
+.contact-mine{
+    margin-right: 17px;
+}
+.layui-m-layerchild{
+    width: 300px;
+}
+.layui-m-layerchild h3{
+    margin: 0px;
+}
+/*关于索拓*/
+.about{
+    flex: 1;
+    height: 30px;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: left;
+}
+.about-suo{
+    margin-left: 11px;
+}
+/*免费收录节目，请联系我们*/
+.touch{
+    /*margin-top: 15px;*/
+    text-align: center;
+    color: gray;
+    letter-spacing: 1px;
+}
+/*底部导航*/
+.footer-item{
+	float: left;
+	text-align: center;
+	width: 33.3%;
+}
+.footer-item li{
+
+}
+.footer-item .active{
+	color: 	#BF3EFF;
+}
+
+

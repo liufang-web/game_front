@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,viewport-fit=cover" />
+    <title>积分商城</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="lib/layer/need/layer.css">
+    <link href="mob/css/shop.css" rel="stylesheet" media="screen">
+    <link href="mob/css/common.css" rel="stylesheet" media="screen">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.0/css/swiper.min.css">
+</head>
+<body>
+    <div id="app">
+        <!--签到用户-->
+        <div class="shop-title">
+            <div class="info-per">
+                <img v-if="!userId" class="info-img" src="img/comp/logo.jpg" alt="头像">
+                <img v-else class="info-img" :src="userIcon" alt="头像">
+                <span v-if="!userId" class="nickname">昵称</span>
+                <span v-else class="nickname">{{userName}}</span>
+                <span v-if="!userId" class="diamond">
+                    <i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;0
+                </span>
+                <span v-else class="diamond">
+                    <i class="fa fa-diamond" aria-hidden="true"></i>{{userJifen}}
+                </span>
+                <button class="yes1" @click="handleRegister()">签到</button>
+            </div>
+        </div>
+        <!--周签到-->
+        <div class="dayWeek">
+            <div class="day-register">
+                <img v-if="!userId" src="img/register/0.jpg" alt="请登录">
+                <img v-else :src='signDay' alt="签到">
+                <i class="fa fa-close" @click="registerEx()"></i>
+            </div>
+        </div>
+        <hr class="shop-hr" />
+        <div class="shop-content">
+            <!--积分商城，积分记录，积分规则-->
+            <div class="shop-text">
+                <div class="shop-mall" @click="shopMall()">积分商城</div>
+                <div class="shop-record" @click="shopRecord()">积分记录</div>
+                <div class="shop-rule" @click="shopRule()">积分规则</div>
+            </div>
+            <!--积分商城-->
+            <div class="mall-content">
+                <!--兑换公告-->
+                <div class="notice">
+                    <i class="fa fa-volume-down fa-2x"></i></i>
+                    <ul class="notice-ul">
+                        <li v-for="item in notice"><span class="red">[{{item.userName}}]</span>&nbsp;兑换了{{item.productName}}</li>
+                    </ul>
+                </div>
+                <div class="mall-title">
+                    <div class="matter" @click="matter()">实物商品</div>
+                    <div class="dummy" @click="dummy()">虚拟物品</div>
+                </div>
+                <hr class="mall-hr" />
+                <div class="matter-content">
+                    <div class="classify">
+                        <div class="classify-total">按分类:</div>
+                        <div class="total" @click="total()">全部</div>
+                        <div class="can" @click="can()">可兑换</div>
+                    </div>
+                    <div class="total-content">
+                        <div class="goods" @click="goodsDetails(item.productId)" v-for="item in matterList">
+                            <img class="goods-img" :src="item.productImg" alt="">
+                            <span class="total-goods">{{item.productName}}</span>
+                            <div class="total-diamond">
+                                <i class="fa fa-diamond" style="color: #ffc213"></i>&nbsp;{{item.productPrice}}
+                                <span class="surplus">剩余: {{item.productAmount}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="can-content">
+                        <div class="goods" @click="goodsDetails(item.productId)" v-for="item in canList" v-if="canList.length != 0">
+                            <img class="goods-img" :src="item.productImg" alt="">
+                            <span class="total-goods">{{item.productName}}</span>
+                            <div class="total-diamond">
+                                <i class="fa fa-diamond" style="color: #ffc213"></i>&nbsp;{{item.productPrice}}
+                                <span class="surplus">剩余: {{item.productAmount}}</span>
+                            </div>
+                        </div>
+                        <div class="can-goods" v-if="canList.length == 0">
+                            <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
+                            <div class="can-font">您目前的积分没有可兑换物品</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dummy-content">
+                    <div class="game-for" v-for="item in dummyList">
+                        <div class="dummy-title">
+                            <img class="game-img" :src="item.productImg" alt="">
+                            <div class="game-title">{{item.productName}}</div>
+                        </div>
+                        <div class="dummy-text">
+                            <div class="gifts">
+                                <div class="gifts-text">
+                                    <div class="gifs-title">{{item.productName}}至尊礼包</div>
+                                    <span class="gifts-one">限领取1次</span>
+                                    <span class="gifts-surplus">剩余{{item.productAmount}}个</span>
+                                </div>
+                                <div class="gifts-content">
+                                    {{item.productDesc}}
+                                </div>
+                            </div>
+                            <div class="gifts-diamond enough" v-if="diamondList.diamond > item.productPrice">
+                                兑换
+                            </div>
+                            <div class="gifts-diamond" v-else>
+                                {{item.productPrice}}积分
+                            </div>
+                        </div>
+                        <hr class="dummy-hr" />
+                    </div>
+                </div>
+            </div>
+            <!--实物详情展开-->
+            <div class="goods-details">
+                <hr class="record-hr" />
+                <div class="goods-title" v-if="goodsList">
+                    <div class="details-img">
+                        <img class="details-i" :src="goodsList.productImg" alt="">
+                    </div>
+                    <div class="goods-name">
+                        <div class="name">{{goodsList.productName}}</div>
+                        <div class="need-diamond">所需积分：<span>{{goodsList.productPrice}}</span></div>
+                        <div class="surplus-count">剩余个数：{{goodsList.productAmount}}</div>
+                        <div v-if="diamondList.diamond >= goodsList.productPrice" class="not-enough enough" @click="getGoods(goodsList.productId)">
+                            兑换
+                        </div>
+                        <div class="not-enough" v-else>积分不足</div>
+                    </div>
+                </div>
+                <div class="goods-text">
+                    <div class="select">
+                        数量<div class="number">1</div>
+                    </div>
+                    <div class="select">
+                        姓名<input class="select-name" type="text" v-model="name">
+                    </div>
+                    <div class="select">
+                        手机<input class="name-number" type="text" maxlength="11" v-model="phone" oninput="value=value.replace(/[^\d]/g,'')">
+                    </div>
+                    <div class="select">
+                        <span class="address">送至</span>
+                        <div data-toggle="distpicker" id="target">
+                            <select id="prov" v-model="address1"></select>
+                            <select id="city" v-model="address2"></select>
+                        </div>
+                        <input class="detailed" type="text" placeholder="详细地址" v-model="address3">
+                    </div>
+                </div>
+                <div class="goods-footer">
+                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                    <span>为了能准确送达您的手中，请确保您所填写的信息的真实性</span>
+                </div>
+                <div class="reply" @click="reply()">
+                    <i class="fa fa-hand-o-left fa-2x" aria-hidden="true"></i>
+                </div>
+            </div>
+            <!--积分记录-->
+            <div class="record-content">
+                <hr class="record-hr" />
+                <div class="record-title">
+                    <div class="get-record" @click="getRecord()">积分记录</div>
+                    <div class="change-record" @click="ChangeRecord()">订单记录</div>
+                </div>
+                <div class="get">
+                    <div class="get-title" v-for="item in getRecordList">
+                        <div class="time">
+                            <div class="get-time">{{item.createTime}}</div>
+                            <div class="get-font">{{item.sence}}</div>
+                        </div>
+                        <div class="get-dimaond" v-if="item.type === 0">+{{item.change}}积分</div>
+                        <div class="get-dimaond" v-if="item.type === 1" style="color: red">-{{item.change}}积分</div>
+                    </div>
+                    <!--<div class="not-more">-->
+                        <!--<hr class="not-hr1" /><span class="not-span">没有更多了</span>-->
+                        <!--<hr class="not-hr2" />-->
+                    <!--</div>-->
+                </div>
+                <div class="change">
+                    <div class="get-change" v-if="changeRecord.length != 0" v-for="(item,index) in changeRecord" @click="handleOrder(item.orderNumber)">
+                        <div class="orderList">
+                            <div class="orderLeft">
+                                <img class="orderImg" :src="item.productIcon" alt="">
+                                <div class="orderTitle">
+                                    <div class="orderNumber">单号: &nbsp;{{item.orderNumber}}</div>
+                                    <div class="productName">商品名: &nbsp;{{item.productName}}</div>
+                                </div>
+                            </div>
+                            <div class="orderTime">-{{item.productPrice}}积分</div>
+                        </div>
+                        <hr class="order-hr"></hr>
+                    </div>
+
+                    <!--<div class="not-more" v-if="changeRecord.length != 0">-->
+                        <!--<hr class="not-hr1" /><span class="not-span">没有更多了</span>-->
+                        <!--<hr class="not-hr2" />-->
+                    <!--</div>-->
+                    <div class="change-goods" v-if="changeRecord.length == 0">
+                        <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
+                        <div class="change-font">您目前的积分没有可兑换物品</div>
+                    </div>
+                </div>
+            </div>
+            <!--积分规则-->
+            <div class="rule-content">
+                <hr class="record-hr" />
+                <div class="one">
+                    <h4>一、什么是积分?</h4>
+                    <p>积分是为了感谢广大百草平台粉丝对百草游戏的支持，根据用户体验游戏，游戏中心活跃度等情况
+                        推出的一项长期的回馈服务。积分作为百草平台积分商城的一种货币，可用于兑换积分商城里面的各种
+                        虚拟奖励，游戏礼包，实物礼品等。
+                    </p>
+                </div>
+                <div class="two">
+                    <h4>二、如何使用积分?</h4>
+                    <p>进入积分商城，找到自己喜欢的商品并点击，即可显示商品详情，当达到所需的兑换条件时，点击兑换按钮即可。
+                    </p>
+                </div>
+                <div class="three">
+                    <h4>三、哪些地方可以使用积分?</h4>
+                    <div>
+                        <h5>1.游戏特权</h5>
+                        <p>限量游戏礼包，游戏道具随心兑换</p>
+                    </div>
+                    <div>
+                        <h5>2.商城礼物</h5>
+                        <p>限时限量兑换虚拟商品</p>
+                    </div>
+                    <div>
+                        <h5>3.积分抽奖</h5>
+                        <p>使用积分进行抽奖，各种礼包等你拿</p>
+                    </div>
+                </div>
+                <div class="four">
+                    <h4>四、积分如何获取?</h4>
+                    <div>
+                        <h5>1.每日签到</h5>
+                        <p>进入游戏中心"我的"界面或者积分商城界面，点击签到，即可获得对应的积分奖励</p>
+                    </div>
+                    <div>
+                        <h5>2.游戏充值</h5>
+                        <p>在百草平台任意游戏内每充值1元即可获得10积分</p>
+                    </div>
+                    <div>
+                        <h5>3.每日分享</h5>
+                        <p>每日分享可得积分</p>
+                    </div>
+                    <div>
+                        <h5>4.每日玩两款游戏</h5>
+                        <p>每日玩两款游戏可得积分</p>
+                    </div>
+                </div>
+                <div class="five">
+                    <h4>五、积分的有效期是多久?</h4>
+                    <p>积分永久有效</p>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+                <a href="index.html" class="footer-item">
+                    <i class="fa fa-gamepad"></i>
+                    <h6>游戏库</h6>
+                </a>
+                <a href="category.html" class="footer-item">
+                    <i class="fa fa-list"></i>
+                    <h6>分类</h6>
+                </a>
+                <a href="#" class="footer-item">
+                    <i class="fa fa-shopping-cart active"></i>
+                    <h6 class="active">积分商城</h6>
+                </a>
+                <a href="mine.html" class="footer-item">
+                    <i class="fa fa-diamond"></i>
+                    <h6>我的</h6>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.0/js/swiper.min.js"></script>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="lib/layer/layer.js"></script>
+    <script src="mob/js/common.js"></script>
+    <script src="mob/js/wx_share.js"></script>
+    <script src="mob/js/distpicker.js"></script>
+    <script src="mob/js/shop.js"></script>
+</body>
+</html>

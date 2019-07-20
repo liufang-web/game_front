@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百草游戏平台</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,viewport-fit=cover"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/layer/need/layer.css">
+    <link rel="stylesheet" href="mob/css/iframe.css">
+</head>
+<body>
+<div id="app">
+    <!--iframe-->
+    <iframe :src="iframeUrl" target="_blank"  frameborder="0"
+            id="iframe" scrolling="no" name="iframe1">
+    </iframe>
+    <div class="opacityShow">
+    </div>
+    <!--抽屉模式-->
+    <div class="show">
+        <button class="suspend" onClick="handleSuspend()">
+            <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
+        </button>
+        <!--抽屉详情-->
+        <div class="drawer">
+            <div class="slide-right">
+                <!--返回game_detail-->
+                <button class="close" onclick="handleClose()">
+                    <a href="#">
+                        <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+                        <span class="span-close">退出</span>
+                    </a>
+                </button>
+                <button class="refresh" onclick="handleRefresh()">
+                    <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>
+                    <span class="span-refresh">返回</span>
+                </button>
+            </div>
+            <div class="slide-left">
+                <div class="info-title">
+                    <div class="info-per">
+                        <img v-if="!userId" class="info-img" src="img/comp/logo.jpg" alt="头像">
+                        <img v-else class="info-img" :src="userIcon" alt="头像">
+                        <span v-if="!userId" class="nickname">昵称</span>
+                        <span v-else class="nickname">{{userName}}</span>
+                        <span v-if="!userId" class="diamond">
+                            <i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;0
+                        </span>
+                        <span v-else class="diamond">
+                            <i class="fa fa-diamond" aria-hidden="true"></i>{{userJifen}}
+                        </span>
+                        <button class="follow" @click="follow()">关注公众号</button>
+                    </div>
+                </div>
+                <div class="qr-code">
+                    <hr class="code-hr" />
+                    <i class="fa fa-angle-left fa-2x" aria-hidden="true" @click="codeExit()"></i>
+                    <img class="code-img" src="img/comp/code2.png" alt="二维码">
+                </div>
+                <div class="info-content">
+                    <div class="jump">
+                        <button class="jump-more" @click="changeMore()">
+                            <i class="fa fa-free-code-camp fa-2x"></i>
+                            <span class="more">更多游戏</span>
+                        </button>
+                        <button class="jump-hot" @click="changeHot()">
+                            <i class="fa fa-map-o fa-2x"></i>
+                            <span class="new">游戏排行</span>
+                        </button>
+                    </div>
+                    <div class="more-game">
+                        <div class="more-hot">
+                            <div class="border-1px"></div>必玩爆款
+                            <i class="fa fa-refresh" aria-hidden="true" @click="refreshMore()"></i>
+                        </div>
+                        <div class="game-list">
+                            <div class="box-flex" v-for="item in gameList">
+                                <div class="img-flex">
+                                    <img :src="item.gameIcon" class="info-img">
+                                </div>
+                                <div class="title-flex">
+                                    <h5>{{item.gameName}}</h5>
+                                    <span>{{item.gamePlay}}人在玩</span>
+                                    <div class="hui">{{item.gameProfile}}</div>
+                                </div>
+                                <a :href="'iframe.html?gameId='+item.gameId+''" class="start-game">
+                                    <img src="img/comp/开始2.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-hot">
+                        <div class="list-content" v-for="(item,index) in gameHot">
+                            <div class="list">
+                                <div class="list-text">
+                                    <span class="list-num num-color" v-if="index < 3">{{index +1}}</span>
+                                    <span class="list-num" v-else>{{index +1}}</span>
+                                    <img :src="item.headImageUrl" class="list-img">
+                                    <span class="list-name">{{item.nickName}}</span>
+                                </div>
+                                <div class="list-diamond">{{item.mark}}分</div>
+                            </div>
+                            <hr class="list-hr" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--退出-->
+    <div class="grayDiv">
+        <div class="prompt">
+            <div class="yes">
+                <div class="qr-img">
+                    <i class="fa fa-times noButton" aria-hidden="true" onclick="no()"></i>
+                    <img src="img/comp/code.jpg" alt="">
+                </div>
+                <hr class="close-hr" />
+                <div class="yes-close">
+                    <button class="yesButton" onclick="yes()">仍要离开</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js" type="text/javascript"></script>
+<script src="lib/layer/layer.js"></script>
+<script src="mob/js/common.js"></script>
+<script src="mob/js/wx_share.js"></script>
+<script src="mob/js/iframe.js"></script>
+</body>
+</html>

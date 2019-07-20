@@ -1,0 +1,15 @@
+/*底部导航*/
+body{
+    padding-bottom: 70px;
+}
+.footer-item{
+    float: left;
+    text-align: center;
+    width: 25%;
+}
+.footer-item li{
+
+}
+.footer-item .active{
+    color: 	#BF3EFF;
+}

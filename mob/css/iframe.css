@@ -1,0 +1,361 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+/*iframe*/
+iframe {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: absolute;
+}
+.opacityShow{
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+/*侧边栏单个按钮*/
+.suspend {
+    border: 1px green solid;
+    width: 30px;
+    height: 30px;
+    z-index: 3;
+    border-radius: 50%;
+    position: absolute;
+    top: 45%;
+    right: 0px;
+}
+/*抽屉模式展开*/
+.drawer{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+    background-color: gray;
+    overflow: hidden;
+}
+/*抽屉中的右侧栏*/
+.slide-right {
+    position: absolute;
+    width: 11%;
+    height: 100%;
+    right: 0px;
+    background-color: black;
+    z-index: 3;
+}
+.close {
+    border: 1px white solid;
+    width: 30px;
+    height: 30px;
+    z-index: 3;
+    border-radius: 50%;
+    position: absolute;
+    top: 36%;
+    right: 3px;
+}
+.span-close{
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 6px;
+}
+
+.refresh {
+    border: 1px white solid;
+    width: 30px;
+    height: 30px;
+    z-index: 3;
+    border-radius: 50%;
+    position: absolute;
+    top: 55%;
+    right: 3px;
+}
+.span-refresh{
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 6px;
+}
+.fa-2x{
+    padding-top: 1px;
+}
+/*抽屉中的左侧栏*/
+.slide-left{
+    width: 89%;
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+    background-color: white;
+    left: 0;
+}
+/*左侧栏头部*/
+.info-title{
+    width: 100%;
+    height: 50px;
+    margin: 10px 10px;
+}
+.info-per{
+    height: 50px;
+}
+.info-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-top: 5px;
+}
+.nickname{
+    position: absolute;
+    top: 16px;
+    margin-left: 5px;
+    font-size: 13px;
+}
+.diamond{
+    position: absolute;
+    top: 38px;
+    margin-left: 5px;
+    font-size: 13px;
+    color: #ffc213;
+}
+.follow{
+    position: absolute;
+    right: 20px;
+    top: 24px;
+    width: 105px;
+    height: 30px;
+    background-color: white;
+    outline: none;
+    border: 1px solid red;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #ff1313;
+}
+/*二维码*/
+.qr-code{
+    display: none;
+    background-color: white;
+    width: 100%;
+}
+.code-hr{
+    width: 98%;
+    margin-left: 1%;
+    border: 1px solid #dbdbdb;
+}
+.fa-angle-left{
+    width: 20px;
+    height: 20px;
+    color: blue;
+}
+.code-img{
+    width: 100%;
+}
+/*左侧栏内容*/
+.info-content{
+    width: 100%;
+}
+.jump{
+    width: 100%;
+    height: 55px;
+    display: flex;
+}
+.jump-more{
+    flex: 1;
+    border: 1px solid #d1d1d1;
+    background-color: #dbdbdb;
+}
+.jump-hot{
+    flex: 1;
+    border: 1px solid #d1d1d1;
+    background-color: white;
+}
+.fa-free-code-camp,.fa-map-o{
+    color: #007aff;
+}
+.more-hot{
+    width: 100%;
+    height: 27px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 27px;
+}
+.border-1px{
+    border-left: 2px solid red;
+    height: 20px;
+    margin-right: 7px;
+    width: 1px;
+    float: left;
+    margin-top: 4px;
+}
+/*排行*/
+.game-hot{
+    display: none;
+}
+.list-content{
+    width: 100%;
+    height: 50px;
+}
+.list{
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+}
+.list-text{
+    flex: 1;
+    align-items: center;
+}
+.num-color{
+    color: red;
+}
+.list-num{
+    line-height: 50px;
+}
+.list-img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+.list-name{
+    font-size: 15px;
+    margin-left: 5px;
+}
+.list-diamond{
+    flex: 0 0 60px;
+    line-height: 50px;
+    font-size: 15px;
+}
+.list-hr{
+    border: none;
+    width: 100%;
+    height: 2px;
+    background-color: #dbdbdb;
+}
+/*抽屉中的列表*/
+.game-list{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center; /* 子元素在垂直方向居中对齐 */
+    width: 100%;
+}
+/* 游戏列表开始*/
+.box-flex{
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    width: 100%;
+    height: 70px;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: #C9C9C9 1px solid;
+}
+.img-flex{
+    display: flex;
+    border-radius: 10px;
+    flex:0 0 75rpx;
+    padding: 10px;
+}
+.img-flex img{
+    width: 55px;
+    height: 55px;
+    border-radius: 10px;
+}
+.title-flex{
+    align-self: baseline;
+    flex-basis: 60%;
+    height: 100%;
+    flex-wrap: nowrap;
+    flex-grow:1;
+}
+.title-flex h5{
+    padding-top: 10px;
+    font-size: 14px;
+    color: #000000;
+    padding-bottom: 2px;
+}
+.title-flex span{
+    font-size: 10px;
+}
+.title-flex i{padding-bottom: 5px;}
+.title-flex h6{
+    font-size: 14px;
+}
+.hui{
+    color: #CFCFCF;
+    font-size: 12px;
+}
+/* 开始按钮 */
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    flex-shrink:0;
+    flex-grow:1;
+    margin: 10px;
+}
+.start-game{
+    color: #FFA500;
+    background: #FFFFFF;
+    font-size: 13px;
+    flex-flow: row nowrap;
+    margin-right: 16px;
+}
+.start-game img{
+    width: 56px;
+    height: 25px;
+}
+/*退出*/
+.grayDiv{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+    background: rgba(128,128,128,0.9);
+}
+.prompt{
+    width: 80%;
+    height: 200px;
+    position: absolute;
+    background-color: white;
+    text-align: center;
+    border: 1px solid #dbdbdb;
+    border-radius: 10px;
+    outline: none;
+    top: 50%;
+    margin-top: -50px;
+    margin-left: 10%;
+}
+.qr-img{
+    width: 100%;
+    height: 150px;
+}
+.noButton{
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    color: blue;
+}
+.qr-img img{
+    width: 150px;
+    height: 150px;
+}
+.yes-close{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 35px;
+}
+.yesButton{
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #007aff;
+    background-color: #007aff;
+    outline: none;
+    color: white;
+}
+
+
+

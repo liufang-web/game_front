@@ -1,0 +1,311 @@
+/*reset*/
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+input,
+button,
+textarea,
+p,
+blockquote {
+	margin: 0;
+	padding: 0;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+li {
+	list-style: none;
+}
+
+img {
+	border: 0;
+}
+
+a {
+	outline: none;
+	color: #313131;
+	text-decoration: none;
+}
+
+/*content*/
+body {
+	min-width: 320px;
+	background: #FFFFFF;
+	font: 12px/1.5 "Microsoft Yahei", "Arial";
+	color: #888;
+	-webkit-text-size-adjust: none;
+	overflow-x: hidden;
+    padding-top: 70px;
+}
+/*logo,搜索*/
+.logo-search{
+	display: flex;
+	width: 100%;
+	height: 20px;
+	margin: 10px 20px;
+}
+.logo{
+	flex: 0 0 70px;
+	width: 30px;
+	height: 30px;
+    border-radius: 50%;
+}
+.search{
+	flex: 1;
+	height: 20px;
+	border-radius: 5px;
+	margin-left: 20px;
+}
+.search-input{
+	border-radius: 5px;
+	border: 1px solid #dbdbdb;
+    outline: none;
+	width: 250px;
+	height: 30px;
+	font-size: 14px;
+}
+.fa-search{
+	margin-left: -25px;
+	color: #dbdbdb;
+}
+.main {
+	width: 100%;
+	max-width: 768px;
+	min-height: 176px;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+/* 导航栏开始 */
+.swiper-container {
+    width: 95%;
+    height: 150px;
+	border-radius: 10px;
+}
+.swiper-slide img{
+	width: 100%;
+	height: 100%;
+	float: left;
+	border-radius: 10px;
+}
+.swiper-title{
+	width: 100%;
+	float: left;
+	line-height: 30px;
+	position: fixed;
+	background: #000000;
+	opacity: 0.6;
+	color: #FFFFFF;
+	bottom: 0px;
+	padding-left: 10px;
+	font-size: 20px;
+}
+
+/* 导航栏结束 */
+/*页游专区*/
+.webpage-game{
+    width: 95%;
+    height: 316px;
+    margin: auto 13px;
+}
+.game-title{
+    width: 100%;
+    height: 24px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.web-game{
+	width: 20px;
+	height: 20px;
+	margin-bottom: 5px;
+	margin-right: 2px;
+}
+.title{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+}
+.more{
+    float: right;
+    margin-right: 18px;
+    font-size: 12px;
+    line-height: 24px;
+    font-weight: 500;
+}
+.game-text{
+    float: left;
+    width: 50%;
+    height: 130px;
+    margin-bottom: 5px;
+}
+.game-img{
+    width: 95%;
+    height: 100px;
+    margin-right: 7px;
+    margin-bottom: 5px;
+}
+.content-text{
+    margin-left: 11px;
+    font-size: 14px;
+	font-weight: 700;
+}
+.game-enter{
+    width: 50px;
+    margin-left: 28px;
+    border-radius: 5px;
+    border: 1px solid #007aff;
+    outline: none;
+	background-color: #007aff;
+	color: white;
+}
+/*页游专区结束*/
+/*热门新游*/
+.hot-new{
+    width: 96%;
+	margin: 40px 2% 40px 2%;
+}
+.jump{
+    display: flex;
+    width: 96%;
+    height: 30px;
+	margin: 0px 2% 15px 2%;
+	border: 1px solid #007aff;
+	background-color: white;
+	outline: none;
+	border-radius: 5px;
+}
+.jump-hot{
+    flex: 1;
+	border: 1px solid #007aff;
+	background-color: #007aff;
+	outline: none;
+	color: white;
+}
+.jump-new{
+    flex: 1;
+	border: 1px solid #007aff;
+	background-color: white;
+	outline: none;
+	color: #007aff;
+}
+.jump-recomm{
+	flex: 1;
+	border: 1px solid #007aff;
+	background-color: white;
+	outline: none;
+	color: #007aff;
+}
+.box {
+	position: relative;
+	/*margin-right: -8px;*/
+}
+.gamelist {
+	overflow: hidden;
+	margin: -1px 10px;
+}
+.gamelist li {
+	padding-top: 10px;
+	float: left;
+	width: 25%;
+	text-align: center;
+}
+
+.gamelist li img {
+	display: block;
+	margin: 0 auto;
+	border-radius: 10px;
+	width: 60px;
+	height: 60px;
+}
+
+.gamelist li h3 {
+	font-weight: normal;
+	height: 24px;
+	line-height: 24px;
+	font-size: 13px;
+	margin-top: 3px;
+	overflow: hidden;
+}
+#newdis{
+	display: none;
+}
+#recommend{
+	display: none;
+}
+.load-more{
+	width: 100px;
+	height: 30px;
+	border-radius: 20px;
+	border: 1px solid #dbdbdb;
+	outline: none;
+	margin: 5px auto;
+	text-align: center;
+	font-size: 14px;
+	line-height: 30px;
+	background-color: #dbdbdb;
+}
+/*我玩过的游戏*/
+.over {
+	height: 29px;
+	line-height: 29px;
+	width: 100%;
+	margin-left: 15px;
+}
+.over-game{
+	width: 15px;
+	height: 15px;
+	margin-bottom: 5px;
+	margin-right: 2px;
+}
+.fa-gamepad{
+	color: #007aff;
+}
+.play-title{
+	font-size: 16px;
+	font-weight: 700;
+}
+#playedGame{
+	padding-top: 15px;
+}
+.gameSlide{
+	overflow: scroll;
+	width: 100%;
+	height: 107px;
+	white-space: nowrap;
+}
+#playGameList{
+	overflow-y: hidden;
+	overflow-x: scroll;
+	white-space: nowrap;
+	display: flex;
+	width: 100%;
+	height: 107px;
+	margin-left: 30px;
+}
+#playGameList li{
+	height: 107px;
+	margin-right: 8.7%;
+}
+/* index end */
+/*中间水平线*/
+.hr-1px{
+	width: 100%;
+	background-color: #dbdbdb;
+	border: none;
+	height: 3px;
+}

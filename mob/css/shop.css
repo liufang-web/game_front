@@ -1,0 +1,603 @@
+#app{
+    margin: 0;
+    overflow-x: hidden;
+}
+.shop-title{
+    width: 100%;
+    height: 50px;
+    margin: 10px 10px;
+}
+.info-per{
+    height: 50px;
+}
+.info-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-top: 5px;
+}
+.nickname{
+    position: absolute;
+    top: 16px;
+    margin-left: 5px;
+    font-size: 13px;
+}
+.diamond{
+    position: absolute;
+    top: 38px;
+    margin-left: 5px;
+    font-size: 13px;
+    color: #ffc213;
+}
+.yes1{
+    position: absolute;
+    right: 15px;
+    top: 24px;
+    width: 80px;
+    height: 30px;
+    background-color: white;
+    outline: none;
+    border: 2px solid #007aff;
+    color: #007aff;
+    border-radius: 5px;
+}
+/*签到展开*/
+.dayWeek{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128,128,128,0.5);
+    z-index: 1;
+    display: none;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+}
+.day-register{
+    background-color: white;
+    width: 320px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -160px;
+}
+.day-register img{
+    width: 320px;
+    height:200px;
+}
+.fa-close{
+    position: absolute;
+    left: 93%;
+    top: 6px;
+    color: #dbdbdb;
+    float: right;
+    margin-right: 6px;
+    font-size: 22px;
+    font-weight: 100;
+}
+/*hr*/
+.shop-hr{
+    margin: 0;
+    border: none;
+    width: 100%;
+    height: 5px;
+    background-color: #EEEEEE;
+}
+/*积分商城，积分纪录，积分规则*/
+.shop-text{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.shop-mall{
+    flex: 1;
+    border-right: 1px solid #EEEEEE;
+    line-height: 30px;
+    background: #007aff;
+    color: white;
+}
+.shop-record{
+    flex: 1;
+    border-right: 1px solid #EEEEEE;
+    line-height: 30px;
+}
+.shop-rule{
+    flex: 1;
+    border-right: 1px solid #EEEEEE;
+    line-height: 30px;
+}
+/*公告*/
+.notice{
+    width: 100%;
+    height: 30px;
+    background-color: #EEEEEE;
+    padding: 0px 10px;
+    overflow: hidden;
+}
+.fa-volume-down{
+    color: red;
+    margin-left: 10px;
+}
+.notice-ul li{
+    list-style: none;
+    line-height: 60px;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.red{
+    color: red;
+}
+/*积分商城*/
+.mall-title{
+    display: flex;
+    align-items: center;
+    height: 30px;
+    text-align: center;
+}
+.matter{
+    flex: 1;
+    border-bottom: 2px solid #007aff;
+    line-height: 30px;
+}
+.dummy{
+    flex: 1;
+    border-bottom: 1px solid #EEEEEE;
+    line-height: 30px;
+}
+.mall-hr{
+    margin: 0;
+    border: none;
+    width: 100%;
+    height: 10px;
+    background-color: #EEEEEE;
+}
+/*
+实物商品
+*/
+.classify{
+    display: flex;
+    width: 100%;
+    height: 30px;
+    align-items: center;
+    line-height: 30px;
+}
+.classify-total{
+    margin-left: 10px;
+    margin-right: 5px;
+}
+.total{
+    margin-left: 5px;
+    margin-right: 5px;
+    background: gray;
+    color: white;
+    width: 31px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+}
+.can{
+    margin-left: 5px;
+    width: 45px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+}
+/*商品实物全部*/
+.goods{
+    padding-top: 10px;
+    float: left;
+    width: 50%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.goods-img{
+    width: 100%;
+    border-radius: 10px;
+}
+.total-goods{
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.total-diamond{
+    margin-top: 5px;
+    font-size: 12px;
+    color: #dbdbdb;
+}
+.surplus{
+    margin-left: 15px;
+}
+/*实物商品中的可兑换*/
+.can-content{
+    display: none;
+}
+.can-goods{
+    text-align: center;
+    font-size: 12px;
+    color: #dbdbdb;
+    height: 200px;
+    background: aliceblue;
+}
+.fa-file-text-o{
+    margin-top: 50px;
+}
+.can-font{
+    margin-top: 20px;
+}
+/*实物商品展开*/
+.goods-details{
+    display: none;
+}
+.goods-title{
+    display: flex;
+    height: 130px;
+    align-items: center;
+}
+.details-img{
+    flex: 1;
+}
+.details-i{
+    width: 150px;
+    height: 100px;
+    margin-left: 20px;
+}
+.goods-name{
+    flex: 1;
+    height: 100px;
+}
+.name{
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.need-diamond{
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+.need-diamond span{
+    color: #71f2ff;
+}
+.surplus-count{
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+.not-enough{
+    width: 105px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    color: white;
+    background-color: #a0a0a0;
+    margin-left: 5px;
+    border-radius: 5px;
+    border: 1px solid #a0a0a0;
+    outline: none;
+}
+.goods-text{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.select{
+    margin-bottom: 15px;
+}
+.number{
+    margin-top: -21px;
+    margin-left: 45px;
+    margin-bottom: 15px;
+    width: 50px;
+    height: 20px;
+    background-color: #d4d4d4;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 5px;
+    border: 1px solid #d4d4d4;
+    outline: none;
+}
+.select-name{
+    margin-left: 15px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #dbdbdb;
+    outline: none;
+}
+.name-number{
+    margin-left: 15px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #dbdbdb;
+    outline: none;
+}
+.address{
+    float: left;
+}
+#prov{
+    margin-left: 15px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: 1px solid #dbdbdb;
+    outline: none;
+}
+#city{
+    border-radius: 5px;
+    border: 1px solid #dbdbdb;
+    outline: none;
+}
+.detailed{
+    margin-left: 43px;
+    margin-top: 5px;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    outline: none;
+    width: 300px;
+}
+.goods-footer{
+    width: 100%;
+    height: 20px;
+    margin-left: 15px;
+    color: orangered;
+    font-size: 10px;
+    line-height: 20px;
+}
+.reply{
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    background-color: #007aff;
+    border-radius: 50%;
+    border: 1px solid #007aff;
+    outline: none;
+    text-align: center;
+}
+.fa-hand-o-left{
+    color: white;
+    padding-top: 4px;
+}
+/*虚拟商品*/
+.dummy-content{
+    display: none;
+}
+.game-for{
+    width: 100%;
+}
+.dummy-title{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 55px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.game-img{
+    flex: 0 0 55px;
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+    border-radius: 10px;
+}
+.game-title{
+    flex: 1;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 65px;
+}
+.dummy-text{
+    display: flex;
+    width: 100%;
+    height: 70px;
+    margin-left: 10px;
+}
+.gifts{
+    flex: 1;
+}
+.gifts-text{
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+.gifs-title{
+    float: left;
+    font-size: 13px;
+    font-weight: 200;
+    margin-right: 5px;
+}
+.gifts-one{
+    font-size: 10px;
+    color: #ecbe8e;
+    border: 1px solid #ecbe8e;
+    margin-right: 5px;
+}
+.gifts-surplus{
+    font-size: 10px;
+    color: #b5ec88;
+    border: 1px solid #B5EC88;
+}
+.gifts-content{
+    font-size: 10px;
+    color: #dbdbdb;
+}
+.gifts-diamond{
+    margin-top: 18px;
+    margin-right: 20px;
+    height: 28px;
+    flex: 0 0 85px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #dadada;
+    border: 1px solid #dadada;
+    outline: none;
+    color: white;
+    font-size: 13px;
+    line-height: 28px;
+}
+.enough{
+    background-color: #0d90ff;
+    border: 1px solid #0d90ff;
+}
+.dummy-hr{
+    margin: 0;
+    border: none;
+    width: 100%;
+    height: 10px;
+    background-color: #E6E6E6;
+}
+/*积分纪录*/
+.record-content{
+    display: none;
+}
+.record-hr{
+    margin: 0;
+    border: none;
+    width: 100%;
+    height: 10px;
+    background-color: #eeeeee;
+}
+.record-title{
+    display: flex;
+    align-items: center;
+    height: 30px;
+    text-align: center;
+}
+.get-record{
+    flex: 1;
+    border-bottom: 2px solid #007aff;
+    line-height: 30px;
+}
+.change-record{
+    flex: 1;
+    border-bottom: 1px solid #EEEEEE;
+    line-height: 30px;
+}
+/*获取纪录*/
+.get-title{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eeeeee;
+}
+.time{
+    margin-left: 10px;
+    flex: 1;
+    height: 40px;
+}
+.get-time{
+    font-size: 10px;
+    color: gainsboro;
+}
+.get-dimaond{
+    margin-right: 5px;
+    flex: 0 0 89px;
+    color: #39b423;
+}
+.not-more{
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    margin-top: 5px;
+}
+.not-hr1{
+    width: 37%;
+    border: none;
+    height: 1px;
+    background-color: #dbdbdb;
+    position: absolute;
+    left: 5px;
+    margin-top: 10px;
+}
+.not-span{
+    font-size: 10px;
+    line-height: 20px;
+    color: #dbdbdb;
+}
+.not-hr2{
+    width: 37%;
+    border: none;
+    height: 1px;
+    background-color: #dbdbdb;
+    position: absolute;
+    right: 5px;
+    margin-top: -9px;
+}
+/*兑换记录*/
+.change{
+   display: none;
+}
+.orderList{
+    display: flex;
+    position: relative;
+}
+.orderLeft{
+    flex: 1;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.orderImg{
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    outline: none;
+}
+.orderTitle{
+    position: absolute;
+    left: 82px;
+    top: 14px;
+}
+.orderNumber{
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+.productName{
+    font-size: 14px;
+    font-weight: 600;
+}
+.orderTime{
+    position: relative;
+    top: 30px;
+    left: 2px;
+    flex: 0 0 110px;
+    color: #dbdbdb;
+}
+.order-hr{
+    margin: 0;
+    margin-top: 10px;
+    border: none;
+    width: 100%;
+    height: 1px;
+    background-color: #dbdbdb;
+}
+.change-goods{
+    text-align: center;
+    font-size: 12px;
+    color: #dbdbdb;
+    height: 200px;
+    background: aliceblue;
+}
+.fa-file-text-o{
+    margin-top: 50px;
+}
+.change-font{
+    margin-top: 20px;
+}
+/*积分规则*/
+.rule-content{
+    display: none;
+}
+.rule-content div{
+    margin: 10px 5px;
+}
+.rule-content h4{
+    font-size: 15px;
+}
+.rule-content p{
+    font-size: 12px;
+    color: #6e6e6e;
+    letter-spacing: 1px;
+}
+

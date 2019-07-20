@@ -1,0 +1,111 @@
+body{
+    padding-top: 70px;
+}
+/*logo,搜索*/
+.logo-search{
+    display: flex;
+    width: 100%;
+    height: 20px;
+    margin: 10px 20px;
+}
+.logo{
+    flex: 0 0 70px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.search{
+    flex: 1;
+    height: 20px;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+.search-input{
+    border-radius: 5px;
+    border: 1px solid #dbdbdb;
+    outline: none;
+    width: 250px;
+    height: 30px;
+    font-size: 14px;
+}
+.fa-search{
+    margin-left: -25px;
+    color: #dbdbdb;
+}
+/*列表*/
+.game-list{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center; /* 子元素在垂直方向居中对齐 */
+    width: 100%;
+}
+/* 游戏列表开始*/
+.box-flex{
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    width: 100%;
+    height: 90px;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: #C9C9C9 1px solid;
+}
+.img-flex{
+    display: flex;
+    border-radius: 10px;
+    flex:0 0 75rpx;
+    padding: 10px;
+}
+.img-flex img{
+    width: 75px;
+    height: 75px;
+    border-radius: 10px;
+}
+.title-flex{
+    align-self: baseline;
+    flex-basis: 60%;
+    height: 100%;
+
+    flex-wrap: nowrap;
+    flex-grow:1;
+}
+.title-flex h5{
+    padding-top: 10px;
+    font-size: 16px;
+    color: #000000;
+    padding-bottom: 2px;
+
+}
+.title-flex span{
+    font-size: 10px;
+}
+.title-flex i{padding-bottom: 5px;}
+.title-flex h6{
+    font-size: 14px;
+}
+.hui{
+    color: #CFCFCF;
+}
+/* 开始按钮 */
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    height: 100%;
+    flex-shrink:0;
+    flex-grow:1;
+    margin: 10px;
+}
+.start-game{
+    color: #FFA500;
+    background: #FFFFFF;
+    font-size: 13px;
+    flex-flow: row nowrap;
+    margin-right: 16px;
+}
+.start-game img{
+    width: 56px;
+    height: 25px;
+}
+
